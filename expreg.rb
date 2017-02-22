@@ -13,20 +13,16 @@ def return_more_than_one_account_number(string)
 end
 
 def replace_account_number(string)
-	 if account_number?(string) 
-	 	string.gsub /\d{4}\-\d{3}/, "XXXX-XXX"
-	 else 
-	 	"La cadena no contiene un número de cuenta."
-	 end
+	account_number?(string) ? string.gsub(/\d{4}\-\d{3}/, "XXXX-XXX") : "La cadena no contiene un número de cuenta."
+	 # if account_number?(string) 
+	 # 	string.gsub /\d{4}\-\d{3}/, "XXXX-XXX"
+	 # else 
+	 # 	"La cadena no contiene un número de cuenta."
+	 # end
 end
 
 def format_account_number(string)
-
-	if /\d{10}/ =~ string 
-		string.sub /(\d{4})(\d{3})(\d{3})/, '\1-\2-\3'
-	else
-		string
-	end
+	(/\d{10}/ =~ string) ? string.sub(/(\d{4})(\d{3})(\d{3})/, '\1-\2-\3') : string
 end
 
 string_con_un_numero_de_cuenta = "El Cliente con el número de cuenta 1234-123-123 se encuentra en proceso de revisión de sus documentos"
